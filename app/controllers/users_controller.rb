@@ -1,4 +1,18 @@
 class UsersController < ApplicationController
+  #routes for login: renders login page/form
+  get '/login' do
+    erb :login
+    
+  end
+  
+  #signup: 
+  get '/users/signup' do
+    
+  end
+
+
+
+
 
   # GET: /users
   get "/users" do
