@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     
   end
   
+  
+  
+  post '/login' do 
+    #receives login form, finds user, logs user in(creates a session)
+    #makes a key value pair to session hash 
+    
+  end
+    
+  
   #signup: 
   get '/users/signup' do
     
