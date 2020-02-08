@@ -14,9 +14,8 @@ ActiveRecord::Schema.define(version: 2020_02_07_040249) do
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
-    t.string "soil"
-    t.string "sun_light"
-    t.string "water"
+    t.string "description"
+    t.string "care_level"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
