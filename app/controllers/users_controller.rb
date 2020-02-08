@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #actually logs in the user
       
       #if true, redirect to users show page
-      redirect "/welcome"
+      redirect "/users/#{@user.id}"
       
     else
     #tell user they entered incorrect credentials 
@@ -36,13 +36,16 @@ class UsersController < ApplicationController
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
     @user = User.create(params)
     
+    #we're redirecting bc it's not our job to show this.. its /users/:id 
+    redirect "/users/#{@user.id}"
     else
+    end
     
   end
   
   #users show page
   get '/users/:id' do 
-    "user show route"
+    erb :'/users/show'
   end
 end
 
