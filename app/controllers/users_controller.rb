@@ -8,26 +8,36 @@ class UsersController < ApplicationController
   #receives login form, finds user, logs user in(creates a session)
   #makes a key value pair to session hash 
   post '/login' do 
+    
     #find user
     @user = User.find_by(email: params[:email])
     
     #authenticate user 
     if @user.authenticate(params[:password])
       
-    else
+      #login user-create the user session
+      session[:user_id] = @user.id. #actually logs in the user
       
+      #if true, redirect to users show page
+      redirect "users/#{@user.id}"
+      
+    else
     #tell user they entered incorrect credentials 
-    #redirect them to login/landing page
-    
-    
+    #redirect them to login
+    end     
   end
+
     
-  
   #signup: 
   get '/users/signup' do
     
   end
-
+  
+  #users show page
+  get ‘/users/:id’ do 
+    "user show route"
+  
+  end
 
 
 
