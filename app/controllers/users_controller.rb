@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     #create new user and persist to database
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
     @user = User.create(params)
+    session[:user_id] = @user.id
     
     #we're redirecting bc it's not our job to show this.. its /users/:id 
     redirect "/users/#{@user.id}"
@@ -47,6 +48,11 @@ class UsersController < ApplicationController
   get '/users/:id' do 
     @user = User.find_by(id: params[:id])
     erb :'/users/show'
+  end
+  
+  get '/logout' do 
+    session.clear 
+    redirect '/'
   end
 end
 
