@@ -33,6 +33,10 @@ class UsersController < ApplicationController
   
   post '/users' do 
     #create new user and persist to database
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    @user = User.create(params)
+    
+    else
     
   end
   
