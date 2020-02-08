@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   #routes for login: renders login page/form
   get '/login' do
-    erb :login
+    erb :'/users/login'
   end
   
   post '/login' do 
@@ -17,8 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #actually logs in the user
       
       #if true, redirect to users show page
-      puts session
-      redirect "users/#{@user.id}"
+      redirect "/welcome"
       
     else
     #tell user they entered incorrect credentials 
@@ -28,9 +27,8 @@ class UsersController < ApplicationController
 
     
     
-  #signup: 
   get '/users/signup' do
-    
+    erb :'/users/signup'
   end
   
   #users show page
