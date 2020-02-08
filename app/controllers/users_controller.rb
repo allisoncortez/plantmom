@@ -11,18 +11,18 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     
     #authenticate user 
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       
       #login user-create the user session
       session[:user_id] = @user.id #actually logs in the user
       
       #if true, redirect to users show page
-      redirect "/users/#{@user.id}"
+      redirect "/users/show"
       
     else
     #tell user they entered incorrect credentials 
     #redirect them to login
-    redirect '/signup'
+    redirect '/users/signup'
     end     
   end
 
