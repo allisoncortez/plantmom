@@ -5,11 +5,20 @@ class UsersController < ApplicationController
     
   end
   
-  
-  
+  #receives login form, finds user, logs user in(creates a session)
+  #makes a key value pair to session hash 
   post '/login' do 
-    #receives login form, finds user, logs user in(creates a session)
-    #makes a key value pair to session hash 
+    #find user
+    @user = User.find_by(email: params[:email])
+    
+    #authenticate user 
+    if @user.authenticate(params[:password])
+      
+    else
+      
+    #tell user they entered incorrect credentials 
+    #redirect them to login/landing page
+    
     
   end
     
