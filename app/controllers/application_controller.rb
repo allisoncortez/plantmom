@@ -25,5 +25,6 @@ class ApplicationController < Sinatra::Base
       #should return current user, if there is one 
       @current_user ||= User.find_by(id: session[:user_id])
     end
+  end
 
 end
