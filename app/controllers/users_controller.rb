@@ -14,9 +14,10 @@ class UsersController < ApplicationController
     if @user.authenticate(params[:password])
       
       #login user-create the user session
-      session[:user_id] = @user.id. #actually logs in the user
+      session[:user_id] = @user.id #actually logs in the user
       
       #if true, redirect to users show page
+      puts session
       redirect "users/#{@user.id}"
       
     else
@@ -33,9 +34,8 @@ class UsersController < ApplicationController
   end
   
   #users show page
-  get ‘/users/:id’ do 
+  get '/users/:id' do 
     "user show route"
-  
   end
 
 
