@@ -31,6 +31,11 @@ class UsersController < ApplicationController
     erb :'/users/signup'
   end
   
+  post '/users' do 
+    #create new user and persist to database
+    
+  end
+  
   #users show page
   get '/users/:id' do 
     "user show route"
