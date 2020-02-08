@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     else
     #tell user they entered incorrect credentials 
     #redirect them to login
+    redirect '/signup'
     end     
   end
 
