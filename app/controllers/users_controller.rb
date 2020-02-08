@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
+  
   #routes for login: renders login page/form
   get '/login' do
     erb :login
-    
   end
   
-  #receives login form, finds user, logs user in(creates a session)
-  #makes a key value pair to session hash 
   post '/login' do 
     
     #find user
@@ -28,6 +26,7 @@ class UsersController < ApplicationController
   end
 
     
+    
   #signup: 
   get '/users/signup' do
     
@@ -38,6 +37,9 @@ class UsersController < ApplicationController
     "user show route"
   
   end
+
+
+
 
 
 
