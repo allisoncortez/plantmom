@@ -11,7 +11,7 @@ class PlantsController < ApplicationController
   
   #show route for plants
   get '/plants/:id' do 
-      @plant = Plant.find_by(id: params[:id])
+      @plant_entry = Plant.find_by(id: params[:id])
       erb :'/plants/show'
   end
   
@@ -50,22 +50,22 @@ class PlantsController < ApplicationController
   
   patch '/plants/:id' do 
     @plant_entry = Plant.find_by(id: params[:id])
-    if logged_in?
-      if @plant_entry.user == current_user 
-        
-    #modify entry 
-        @plant_entry.update(name: params[:name], description: params[:description], care_level: params[:care_level])
-    
-        redirect "/plants/#{@plant_entry.id}"
-      else 
-        redirect "users/#{current_user.id}"
+    if valid_params? && @plant_entry.update(params[:plant]) 
+      redirect "/plants/#{@plant_entry.id}"
+    else
+        redirect "/plants/#{@plant_entry.id}/edit"
       end
   end
   
-  private 
-  
-    def set_plant_entry 
-      @plant_entry = Plant.find(params[:id])
+  helpers do
+    def valid_params?
+      params[:plant].none? do |k,v| 
+        v == ""
+      end
     end
+  
+    # def set_plant_entry 
+    #   @plant_entry = Plant.find(params[:id])
+    # end
 end
 end

@@ -1,13 +1,13 @@
-<h1><%=@plant.name%></h1>
-<p><%=@plant.description%></p>
-<p><%=@plant.care_level%></p>
+<h1><%=@plant_entry.name%></h1>
+<p><%=@plant_entry.description%></p>
+<p><%=@plant_entry.care_level%></p>
 
 
 #hide if it doesn't belong to us
 
-<% if authorized_to_edit?(@plant) %>
-<a href="/plants/<%=@plant.id%>/edit">Edit Entry</a>
-<form method="post" action="/plants/<%=@plant.id%>/delete">
+<% if authorized_to_edit?(@plant_entry) %>
+<a href="/plants/<%=@plant_entry.id%>/edit">Edit Entry</a>
+<form method="post" action="/plants/<%=@plant_entry.id%>/delete">
 <input type="hidden" name="_method" id="hidden" value="delete">
 <input type="submit" value="Delete Plant">
 </form>
