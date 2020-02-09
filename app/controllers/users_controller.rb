@@ -38,9 +38,8 @@ class UsersController < ApplicationController
   end
   
   
-  post '/login' do 
+  post '/users/login' do 
     login(params[:email], params[:password])
-    current_user 
     redirect '/users/show/:id'
       
     # else

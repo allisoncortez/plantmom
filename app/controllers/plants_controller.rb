@@ -62,6 +62,7 @@ class PlantsController < ApplicationController
       else
         redirect '/login'
       end
+    end
   end
 
   
