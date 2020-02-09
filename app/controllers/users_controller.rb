@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
   
   
-  post '/signup' do 
+  post '/users/signup' do 
     #create new user and persist to database
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/users/signup'
