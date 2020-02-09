@@ -1,28 +1,23 @@
 class UsersController < ApplicationController
   
-  get '/login' do
-    if logged_in?
-      redirect '/plants'
+  get '/users/login' do
+    if !logged_in?
+      erb :'/users/login'
     else 
-      erb :'users/login'
+      redirect '/users//show/:id'
     end
   end
   
   
-  post '/login' do 
-    
-    #find user
-    @user = User.find_by(email: params[:email])
-    
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id #actually logs in the user
+  post '/users/login' do 
+    login(params[:email], params[:password])
+    current_user 
+    redirect '/users/show/:id'
       
-      redirect "/plants"
-      
-    else
-      #flash[:message] = "Oops! Looks like your login failed. Please try again."
-      erb :'/users/signup'
-    end     
+    # else
+    #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
+    #   erb :'/users/signup'
+    # end     
   end
     
     
@@ -45,8 +40,8 @@ class UsersController < ApplicationController
   
   
   #users show page
-  get '/users/:id' do 
-    @user = User.find_by(id: params[:id])
+  get '/users/show/:id' do 
+    @user = User.find_by_id(session[:user_id])
     erb :'/users/show'
   end
   
