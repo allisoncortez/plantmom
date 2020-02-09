@@ -2,7 +2,11 @@ class PlantsController < ApplicationController
 
   #get plants new to creat new plant entries 
   get '/plants/new' do 
-    erb :'/plants/new'
+    if logged_in?
+     erb :'plants/new'
+    else
+     redirect 'plants/login'
+   end
   end
 
   #post route for new plant entries
@@ -27,8 +31,12 @@ class PlantsController < ApplicationController
 
   #show route for plants
   get '/plants/:id' do 
-    set_plant_entry
-    erb :'/plants/show'
+    if logged_in?
+      @plant_entry = Plant.find_by_id(params[:id])
+      erb :'/plants/show'
+    else
+      redirect '/plants/login'
+    end
   end
 
   #sends us to edit.erb which will render an edit form
@@ -48,11 +56,15 @@ class PlantsController < ApplicationController
   patch '/plants/:id' do 
     #find plant entry 
     set_plant_entry
-    
+    if logged_in?
+      if @plant_entry.user == current_user 
+        
     #modify entry 
-    @plant_entry.update(name: params[:name], description: params[:description], care_level: params[:care_level])
+        @plant_entry.update(name: params[:name], description: params[:description], care_level: params[:care_level])
     
-    redirect "/plants/#{@plant_entry.id}"
+        redirect "/plants/#{@plant_entry.id}"
+      else 
+        redirect "users/#{current_user.id}"
   end
   
   private 
