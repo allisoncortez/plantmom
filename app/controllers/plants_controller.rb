@@ -40,8 +40,11 @@ class PlantsController < ApplicationController
   patch '/plants/:id' do 
     #find plant entry 
     set_plant_entry
+    
     #modify entry 
-    #redirect to showpage
+    @plant_entry.update(params)
+    
+    redirect "/plants/#{@plant_entry.id}"
   end
   
   private 
