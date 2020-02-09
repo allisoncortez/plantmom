@@ -1,6 +1,9 @@
 class PlantsController < ApplicationController
 
 #get plants new to creat new plant entries 
+get 'plants/new' do 
+  erb :'/plants/new'
+end
 
 #post route for new plant entries
 
