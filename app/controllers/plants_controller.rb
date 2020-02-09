@@ -41,7 +41,7 @@ class PlantsController < ApplicationController
 
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
-    set_plant_entry
+    @plant_entry = Plant.find(params[:id])
     if logged_in?
     if @plant_entry.user == current_user
       erb :'/plants/edit'
@@ -55,7 +55,7 @@ class PlantsController < ApplicationController
   
   patch '/plants/:id' do 
     #find plant entry 
-    set_plant_entry
+    @plant_entry = Plant.find(params[:id])
     if logged_in?
       if @plant_entry.user == current_user 
         
@@ -65,11 +65,13 @@ class PlantsController < ApplicationController
         redirect "/plants/#{@plant_entry.id}"
       else 
         redirect "users/#{current_user.id}"
+      end
   end
   
   private 
   
-  def set_plant_entry 
-    @plant_entry = Plant.find(params[:id])
-  end
+    def set_plant_entry 
+      @plant_entry = Plant.find(params[:id])
+    end
+end
 end
