@@ -54,6 +54,12 @@ class PlantsController < ApplicationController
       end
   end
   
+  delete '/plants/:id/delete' do 
+    @plant = Plant.find_by(id: params[:id])
+    @plant.delete 
+    redirect "/plants"
+  end
+  
   helpers do
     def valid_params?
       params[:plant].none? do |k,v| 
