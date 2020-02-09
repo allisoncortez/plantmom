@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else 
-      redirect '/users//show/:id'
+      redirect '/users/show/:id'
     end
   end
   
@@ -21,20 +21,26 @@ class UsersController < ApplicationController
   end
     
     
-  get '/users/signup' do
-    erb :'/users/signup'
+  get '/signup/new' do
+    if !logged_in?
+      erb :'/signup/new'
+    else 
+      redirect '/users/show/:id'
+    end
   end
   
   
-  post '/users' do 
+  post '/signup/new' do 
     #create new user and persist to database
-    if params[:username] != "" && params[:email] != "" && params[:password] != ""
-    @user = User.create(params)
-    session[:user_id] = @user.id
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect '/signup/new'
+    else 
+      @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      @user.save
+      session[:user_id] = @user.id
     
-    #we're redirecting bc it's not our job to show this.. its /users/:id 
-    redirect "/users/#{@user.id}"
-    else
+      #we're redirecting bc it's not our job to show this.. its /users/:id 
+      redirect "/users/show/:id"
     end
   end
   
