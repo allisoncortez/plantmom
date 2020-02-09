@@ -42,7 +42,7 @@ class PlantsController < ApplicationController
     set_plant_entry
     
     #modify entry 
-    @plant_entry.update(params)
+    @plant_entry.update(name: params[:name], description: params[:description], care_level: params[:care_level])
     
     redirect "/plants/#{@plant_entry.id}"
   end
