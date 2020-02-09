@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
     @plant = Plant.all 
     erb :"/plants/index"
     else
-      redirect '/login'
+      redirect '/users/login'
     end
   end
    
@@ -13,7 +13,7 @@ class PlantsController < ApplicationController
     if logged_in?
      erb :"/plants/new"
    else
-     redirect '/login'
+     redirect '/users/login'
    end
   end
   
@@ -60,7 +60,7 @@ class PlantsController < ApplicationController
       if @plant && @plant.user == current_user
         erb :'/plants/edit'
       else
-        redirect '/login'
+        redirect '/users/login'
       end
     end
   end

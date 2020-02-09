@@ -24,9 +24,9 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
     
-    # def authorized_to_edit?(plant_entry)
-    #   plant_entry.user == current_user
-    # end
+    def authorized_to_edit?(plant_entry)
+      plant_entry.user == current_user
+    end
     
     def login(email, password)
     @user = User.find_by(:email => email) 
