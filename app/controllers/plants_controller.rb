@@ -1,6 +1,10 @@
 class PlantsController < ApplicationController
-
-  #get plants new to creat new plant entries 
+  
+  get '/plants' do 
+    @plant_entries = Plant.all 
+    erb :'plants/index'
+  end
+   
   get '/plants/new' do 
     if logged_in?
      erb :'plants/new'
