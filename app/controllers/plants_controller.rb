@@ -36,7 +36,7 @@ class PlantsController < ApplicationController
   #show route for plants
   get '/plants/:id' do 
     if logged_in?
-      @plant_entry = Plant.find_by_id(params[:id])
+      @plant_entry = Plant.find(params[:id])
       erb :'/plants/show'
     else
       redirect '/plants/login'
