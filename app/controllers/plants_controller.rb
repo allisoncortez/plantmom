@@ -1,37 +1,11 @@
 class PlantsController < ApplicationController
 
-  # GET: /plants
-  get "/plants" do
-    erb :"/plants/index.html"
-  end
+#get plants new to creat new plant entries 
 
-  # GET: /plants/new
-  get "/plants/new" do
-    erb :"/plants/new.html"
-  end
+#post route for new plant entries
 
-  # POST: /plants
-  post "/plants" do
-    redirect "/plants"
-  end
+#show route for plants
 
-  # GET: /plants/5
-  get "/plants/:id" do
-    erb :"/plants/show.html"
-  end
+#index route for all plants
 
-  # GET: /plants/5/edit
-  get "/plants/:id/edit" do
-    erb :"/plants/edit.html"
-  end
-
-  # PATCH: /plants/5
-  patch "/plants/:id" do
-    redirect "/plants/:id"
-  end
-
-  # DELETE: /plants/5/delete
-  delete "/plants/:id/delete" do
-    redirect "/plants"
-  end
 end
