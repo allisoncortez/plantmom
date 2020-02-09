@@ -3,7 +3,7 @@
 <p><%= @plant_entry.name%></p>
 
 
-<% if current_user == @plant_entry.user %>
+<% if authorized_to_edit?(@plant_entry) %>
 <a href="/plants/<%= @plant_entry.id %>/edit">Edit Entry</a>
 
 Delete

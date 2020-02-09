@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-  #routes for login: renders login page/form
   get '/users/login' do
     erb :'/users/login'
   end
