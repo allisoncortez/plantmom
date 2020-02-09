@@ -26,6 +26,10 @@ end
 
 
 #show route for plants
+get '/plants/:id' do 
+  @plant_entry = Plant.find(params[:id])
+  erb :'/plants/show'
+end
 
 #index route for all plants
 
