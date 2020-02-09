@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   
-  post '/users/login' do 
+  post '/login' do 
     login(params[:email], params[:password])
     current_user 
     redirect '/users/show/:id'
