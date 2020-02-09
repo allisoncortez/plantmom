@@ -21,19 +21,19 @@ class UsersController < ApplicationController
   end
     
     
-  get '/signup/new' do
+  get '/users/signup' do
     if !logged_in?
-      erb :'/signup/new'
+      erb :'users/signup'
     else 
       redirect '/users/show/:id'
     end
   end
   
   
-  post '/signup/new' do 
+  post '/signup' do 
     #create new user and persist to database
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect '/signup/new'
+      redirect '/users/signup'
     else 
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
