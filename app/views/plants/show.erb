@@ -1,8 +1,10 @@
 <h1>This is the show page for plants.</h1>
 
+<p><%= @plant_entry.name%></p>
 
-Edit
+
+<% if current_user == @plant_entry.user %>
 <a href="/plants/<%= @plant_entry.id %>/edit">Edit Entry</a>
 
 Delete
-
+<% end %>
