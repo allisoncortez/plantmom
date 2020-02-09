@@ -2,16 +2,37 @@ class PlantsController < ApplicationController
   
   get '/plants' do 
     @plant_entries = Plant.all 
-    erb :'plants/index'
+    erb :"plants/index"
   end
    
   get '/plants/new' do 
-    if logged_in?
-     erb :'plants/new'
-    else
-     redirect 'plants/login'
-   end
+     erb :"plants/new"
   end
+  
+  #show route for plants
+  get '/plants/:id' do 
+    if logged_in?
+      @plant_entry = Plant.find_by(id: params[:id])
+      erb :'plants/show'
+    else
+      redirect '/plants/login'
+    end
+  end
+  
+  #sends us to edit.erb which will render an edit form
+  get '/plants/:id/edit' do 
+    @plant_entry = Plant.find_by(id: params[:id])
+    if logged_in?
+    if authorized_to_edit?(@plant_entry)
+      erb :'/plants/edit'
+    else 
+      redirect "users/#{current_user.id}"
+    end
+  else 
+    redirect '/'
+  end
+  end
+  
 
   #post route for new plant entries
   post '/plants' do 
@@ -30,30 +51,6 @@ class PlantsController < ApplicationController
 
   end
 
-
-  #show route for plants
-  get '/plants/:id' do 
-    if logged_in?
-      @plant_entry = Plant.find(params[:id])
-      erb :'/plants/show'
-    else
-      redirect '/plants/login'
-    end
-  end
-
-  #sends us to edit.erb which will render an edit form
-  get '/plants/:id/edit' do 
-    @plant_entry = Plant.find(params[:id])
-    if logged_in?
-    if authorized_to_edit?(@plant_entry)
-      erb :'/plants/edit'
-    else 
-      redirect "users/#{current_user.id}"
-    end
-  else 
-    redirect '/'
-  end
-  end
   
   patch '/plants/:id' do 
     @plant_entry = Plant.find(params[:id])

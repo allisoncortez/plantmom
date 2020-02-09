@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
     def current_user 
       #should return current user, if there is one 
       # @current_user ||= User.find_by(id: session[:user_id])
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+      @current_user ||= User.find_by(session[:user_id]) if session[:user_id]
     end
     
     def authorized_to_edit?(plant_entry)
