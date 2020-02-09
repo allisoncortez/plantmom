@@ -3,13 +3,14 @@
 <p><%=@plant.care_level%></p>
 
 
-#hide if it doesn't belong to us
 
-<% if authorized_to_edit?(@plant) %>
-<a href="/plants/<%=@plant.id%>/edit">Edit Entry</a>
+<% if plant.user.id == current_user.id %>
+<a href="/plants/<%=@plant.id%>/edit">Edit Plant</a>
+
+
 <form method="post" action="/plants/<%=@plant.id%>/delete">
-<input type="hidden" name="_method" id="hidden" value="delete">
-<input type="submit" value="Delete Plant">
+  <input type="hidden" name="_method" id="hidden" value="delete">
+  <input type="submit" value="Delete Plant">
 </form>
 
 <% end %>
