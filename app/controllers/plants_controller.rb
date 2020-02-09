@@ -27,16 +27,27 @@ class PlantsController < ApplicationController
 
   #show route for plants
   get '/plants/:id' do 
-    @plant_entry = Plant.find(params[:id])
+    set_plant_entry
     erb :'/plants/show'
   end
 
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
-    @plant_entry = Plant.find(params[:id])
+    set_plant_entry
     erb :'/plants/edit'
   end
-
-  #index route for all plants
+  
+  patch '/plants/:id' do 
+    #find plant entry 
+    set_plant_entry
+    #modify entry 
+    #redirect to showpage
+  end
+  
+  private 
+  
+  def set_plant_entry 
+    @plant_entry = Plant.find(params[:id])
+  end
 
 end
