@@ -1,54 +1,74 @@
 class PlantsController < ApplicationController
   
   get '/plants' do 
+    if logged_in?
     @plant = Plant.all 
     erb :"/plants/index"
+    else
+      redirect '/login'
+    end
   end
    
   get '/plants/new' do 
+    if logged_in?
      erb :"/plants/new"
+   else
+     redirect '/login'
+   end
+  end
+  
+  #post route for new plant entries
+  post '/plants' do 
+    if logged_in?
+      if params[:name] == "" || params[:description] == "" || params[:care_level] == ""
+        redirect "/plants/new"
+      else 
+        @plant = current_user.plants.build(name: params[:name], description: params[:description], care_level: params[:care_level])
+        if @plant.save 
+          redirect "/plants/#{@plant.id}"
+        else 
+          redirect "/plants/new"
+        end 
+      end
+    else 
+      redirect '/login'
+    end
+      
+    
+    # @plant = Plant.new(params[:plant])
+    # if valid_params? && @plant.save 
+    #   redirect "/plants/#{@plant.id}"
+    # else 
+    #   redirect "/plants/new"
+    # end
   end
   
   #show route for plants
   get '/plants/:id' do 
-      @plant = Plant.find_by(id: params[:id])
+    if logged_in?
+      @plant = Plant.find_by_id(params[:id])
       erb :'/plants/show'
+    else 
+      redirect '/login'
+    end
   end
   
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
+    if logged_in?
     @plant = Plant.find_by(id: params[:id])
-      erb :'/plants/edit'
-  end
-  
-
-  #post route for new plant entries
-  post '/plants' do 
-    @plant = Plant.new(params[:plant])
-    if valid_params? && @plant.save 
-      redirect "/plants/#{@plant.id}"
-    else 
-      redirect "/plants/new"
-      
-    # if !logged_in? 
-    #   redirect '/'
-    # end 
-  
-    # #only save IF it has all params
-    # if params[:description] != ""
-    #   @plant_entry = Plant.create(name: params[:name], description: params[:description], care_level: params[:care_level],  user_id: current_user.id)
-    
-    #   redirect "/plants/#{@plant_entry.id}"
-    # else 
-    #   redirect '/plants/new'
-    end
+      if @plant && @plant.user == current_user
+        erb :'/plants/edit'
+      else
+        redirect '/login'
+      end
   end
 
   
   patch '/plants/:id' do 
     @plant = Plant.find_by(id: params[:id])
     if valid_params? && @plant.update(params[:plant]) 
-      redirect "/plants/#{@plant.id}"
+      redirect "/plants/#{@plant.id}/edit"
     else
         redirect "/plants/#{@plant.id}/edit"
       end
@@ -70,5 +90,5 @@ class PlantsController < ApplicationController
     # def set_plant_entry 
     #   @plant_entry = Plant.find(params[:id])
     # end
-end
+  end
 end
