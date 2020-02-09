@@ -4,7 +4,7 @@
 
 
 
-<% if plant.user.id == current_user.id %>
+<% if @plant.user == current_user %>
 <a href="/plants/<%=@plant.id%>/edit">Edit Plant</a>
 
 
