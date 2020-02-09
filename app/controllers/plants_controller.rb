@@ -17,7 +17,7 @@ class PlantsController < ApplicationController
     if params[:description] != ""
       @plant_entry = Plant.create(name: params[:name], description: params[:description], care_level: params[:care_level],  user_id: current_user.id)
     
-      redirect "/plants/#{@plant.id}"
+      redirect "/plants/#{@plant_entry.id}"
     else 
       redirect '/plants/new'
     end
