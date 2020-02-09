@@ -1,7 +1,7 @@
 class PlantsController < ApplicationController
 
 #get plants new to creat new plant entries 
-get 'plants/new' do 
+get '/plants/new' do 
   erb :'/plants/new'
 end
 
