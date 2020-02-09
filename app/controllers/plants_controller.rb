@@ -33,6 +33,7 @@ class PlantsController < ApplicationController
 
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
+    @plant_entry = Plant.find(params[:id])
     erb :'/plants/edit'
   end
 
