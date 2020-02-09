@@ -1,26 +1,11 @@
 class UsersController < ApplicationController
   
-  get '/users/login' do
-    if !logged_in?
-      erb :'/users/login'
-    else 
-      redirect '/users/show/:id'
-    end
+  #users show page
+  get '/users/show/:id' do 
+    @user = User.find_by_id(params[:id])
+    erb :'/users/show'
   end
   
-  
-  post '/login' do 
-    login(params[:email], params[:password])
-    current_user 
-    redirect '/users/show/:id'
-      
-    # else
-    #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
-    #   erb :'/users/signup'
-    # end     
-  end
-    
-    
   get '/users/signup' do
     if !logged_in?
       erb :'users/signup'
@@ -44,11 +29,24 @@ class UsersController < ApplicationController
     end
   end
   
+  get '/users/login' do
+    if !logged_in?
+      erb :'/users/login'
+    else 
+      redirect '/users/show/:id'
+    end
+  end
   
-  #users show page
-  get '/users/show/:id' do 
-    @user = User.find_by_id(session[:user_id])
-    erb :'/users/show'
+  
+  post '/login' do 
+    login(params[:email], params[:password])
+    current_user 
+    redirect '/users/show/:id'
+      
+    # else
+    #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
+    #   erb :'/users/signup'
+    # end     
   end
   
   
