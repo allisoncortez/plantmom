@@ -9,7 +9,7 @@ end
 post '/plants' do 
 #create new plant and save to DB 
 #only if user is logged in 
-  if !logged_in 
+  if !logged_in? 
     redirect '/'
   end 
   
