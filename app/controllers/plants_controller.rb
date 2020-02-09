@@ -15,8 +15,6 @@ class PlantsController < ApplicationController
 
   #post route for new plant entries
   post '/plants' do 
-  #create new plant and save to DB 
-  #only if user is logged in 
     if !logged_in? 
       redirect '/'
     end 
@@ -47,7 +45,7 @@ class PlantsController < ApplicationController
   get '/plants/:id/edit' do 
     @plant_entry = Plant.find(params[:id])
     if logged_in?
-    if @plant_entry.user == current_user
+    if authorized_to_edit?(@plant_entry)
       erb :'/plants/edit'
     else 
       redirect "users/#{current_user.id}"
@@ -58,7 +56,6 @@ class PlantsController < ApplicationController
   end
   
   patch '/plants/:id' do 
-    #find plant entry 
     @plant_entry = Plant.find(params[:id])
     if logged_in?
       if @plant_entry.user == current_user 
