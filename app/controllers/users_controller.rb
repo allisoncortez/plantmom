@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   
-  get '/users/login' do
-    erb :'/users/login'
+  get '/login' do
+    if logged_in?
+      redirect '/plants'
+    else 
+      erb :'users/login'
+    end
   end
   
   
@@ -10,17 +14,14 @@ class UsersController < ApplicationController
     #find user
     @user = User.find_by(email: params[:email])
     
-    #authenticate user 
     if @user && @user.authenticate(params[:password])
-      
-      #login user-create the user session
       session[:user_id] = @user.id #actually logs in the user
       
-      #if true, redirect to users show page
-      redirect "/users/show"
+      redirect "/plants"
       
     else
-      redirect '/users/signup'
+      #flash[:message] = "Oops! Looks like your login failed. Please try again."
+      erb :'/users/signup'
     end     
   end
     
