@@ -1,22 +1,18 @@
 class PlantsController < ApplicationController
   
   get '/plants' do 
-    @plant_entries = Plant.all 
-    erb :"plants/index"
+    @plant_entry = Plant.all 
+    erb :"/plants/index"
   end
    
   get '/plants/new' do 
-     erb :"plants/new"
+     erb :"/plants/new"
   end
   
   #show route for plants
   get '/plants/:id' do 
-    if logged_in?
-      @plant_entry = Plant.find_by(id: params[:id])
-      erb :'plants/show'
-    else
-      redirect '/plants/login'
-    end
+      @plant = Plant.find_by(id: params[:id])
+      erb :'/plants/show'
   end
   
   #sends us to edit.erb which will render an edit form
@@ -53,7 +49,7 @@ class PlantsController < ApplicationController
 
   
   patch '/plants/:id' do 
-    @plant_entry = Plant.find(params[:id])
+    @plant_entry = Plant.find_by(id: params[:id])
     if logged_in?
       if @plant_entry.user == current_user 
         

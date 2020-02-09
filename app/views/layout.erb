@@ -15,9 +15,14 @@
   </head>
   <body>
     <div class="nav">
+    <% if current_user %>
+      <a href="/plants/show">All plants</a>
+      <a href="/plants/new">Add a plant</a>
       <a href="/logout">Log Out</a>
-      <a href="/plants/show">View my plants</a>
-      <a href="/plants/new">Log a new plant</a>
+    <% else %>
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Log In</a>
+    <% end %>
     </div>
     
     
