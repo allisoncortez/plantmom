@@ -1,1 +1,9 @@
-<h1>This is the Model's index page.</h1>
+<h1>INDEX PAGE FOR PLANTS.</h1>
+<br>
+<% @journal_entries.each do |plant_entry| %>
+  <%= plant_entry.name %>
+  <br>
+  <%= plant_entry.description %>
+  <br>
+  <%= plant_entry.care_level %>
+<% end %>
