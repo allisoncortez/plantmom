@@ -55,8 +55,8 @@ class PlantsController < ApplicationController
   
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
+    @plant = Plant.find_by(id: params[:id])
     if logged_in? && current_user == @plant.user
-      @plant = Plant.find_by(id: params[:id])
         erb :'/plants/edit'
       else
         redirect '/users/plants'
