@@ -11,21 +11,21 @@ class PlantsController < ApplicationController
    
   get '/plants/new' do 
     if logged_in?
-     erb :"/plants/new"
-   else
-     redirect '/users/login'
-   end
+    erb :"/plants/new"
+  else
+    redirect '/users/login'
+  end
   end
   
   #post route for new plant entries
   post '/plants' do 
     if logged_in?
       if params[:name] == "" || params[:description] == "" || params[:care_level] == ""
-        redirect "/plants/new"
+        erb :'/plants/new'
       else 
         @plant = current_user.plants.build(name: params[:name], description: params[:description], care_level: params[:care_level])
         if @plant.save 
-          redirect "/plants/#{@plant.id}"
+          redirect "/plants"
         else 
           redirect "/plants/new"
         end 
@@ -41,7 +41,7 @@ class PlantsController < ApplicationController
     # else 
     #   redirect "/plants/new"
     # end
-  end
+  
   
   #show route for plants
   get '/plants/:id' do 
@@ -54,12 +54,12 @@ class PlantsController < ApplicationController
   end
   
   #sends us to edit.erb which will render an edit form
-  get '/plants/:id/edit' do 
+  get '/plants/:id/:slug/edit' do 
     @plant = Plant.find_by(id: params[:id])
     if logged_in? && current_user == @plant.user
         erb :'/plants/edit'
       else
-        redirect '/users/plants'
+        redirect '/users/login'
     end
   end
 
@@ -72,9 +72,9 @@ class PlantsController < ApplicationController
         @plant = Plant.find_by_id(params[:id])
         if @plant && @plant.user == current_user 
           if @plant.update(name: params[:name], description: params[:description], care_level: params[:care_level])
-            redirect "/plants/#{@plant.id}"
+            redirect "/plants/show/#{params[:id]}"
           else
-            redirect "/plants/#{@plant.id}/edit"
+            redirect "/plants/#{params[:id]}/edit"
       end
     else
       redirect 'tweets'
@@ -101,12 +101,12 @@ else
     redirect "/plants"
   end
   
-  helpers do
-    def valid_params?
-      params[:plant].none? do |k,v| 
-        v == ""
-      end
-    end
+  # helpers do
+  #   def valid_params?
+  #     params[:plant].none? do |k,v| 
+  #       v == ""
+  #     end
+  #   end
   
     # def set_plant_entry 
     #   @plant_entry = Plant.find(params[:id])

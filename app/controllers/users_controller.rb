@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   #users show page
   get '/users/show/:id' do 
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(session[:user_id])
     erb :'/users/show'
   end
   
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/signup'
     else 
-      redirect '/users/show/:id'
+      redirect "/users/show/#{current_user.id}"
     end
   end
   
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
     
       #we're redirecting bc it's not our job to show this.. its /users/:id 
-      redirect "/users/show/:id"
+      redirect "/users/show/#{current_user.id}"
     end
   end
   
@@ -33,14 +33,14 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else 
-      redirect '/users/show/:id'
+      redirect "/users/show/#{current_user.id}"
     end
   end
   
   
   post '/users/login' do 
     login(params[:email], params[:password])
-    redirect '/users/show/:id'
+    redirect "/users/show/#{current_user.id}"
       
     # else
     #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
