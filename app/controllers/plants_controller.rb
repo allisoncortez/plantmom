@@ -9,6 +9,16 @@ class PlantsController < ApplicationController
     end
   end
   
+  #show route for plants
+  get '/plants/:id' do 
+    if logged_in?
+      @plant = Plant.find_by(id: params[:id])
+      erb :'/plants/show'
+    else 
+      redirect '/users/login'
+    end
+  end
+  
   get '/plants/new' do 
     if logged_in?
     erb :"/plants/new"
@@ -43,15 +53,7 @@ class PlantsController < ApplicationController
     # end
   
   
-  #show route for plants
-  get '/plants/:id' do 
-    if logged_in?
-      @plant = Plant.find_by(id: params[:id])
-      erb :'/plants/show'
-    else 
-      redirect '/users/login'
-    end
-  end
+
   
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
@@ -72,7 +74,7 @@ class PlantsController < ApplicationController
         @plant = Plant.find_by_id(params[:id])
         if @plant && @plant.user == current_user 
           if @plant.update(name: params[:name], description: params[:description], care_level: params[:care_level])
-            redirect "/plants/show/#{params[:id]}"
+            redirect "/plants/#{params[:id]}"
           else
             redirect "/plants/#{params[:id]}/edit"
       end
