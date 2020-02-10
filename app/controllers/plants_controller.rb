@@ -55,6 +55,7 @@ class PlantsController < ApplicationController
     else 
       redirect '/users/login'
     end
+  end
       
     
     # @plant = Plant.new(params[:plant])
@@ -78,13 +79,13 @@ class PlantsController < ApplicationController
             redirect "/plants/#{params[:id]}"
           else
             redirect "/plants/#{params[:id]}/edit"
-      end
-    else
-      redirect 'tweets'
-    end 
-  end 
-else 
-  redirect '/login'
+          end
+        else
+          redirect 'tweets'
+        end 
+      end 
+    else 
+       redirect '/login'
     end
   end
       
@@ -96,7 +97,6 @@ else
   #   else
   #       redirect "/plants/#{@plant.id}/edit"
   #     end
-  end
   
   delete '/plants/:id/delete' do 
     @plant = Plant.find_by(id: params[:id])
