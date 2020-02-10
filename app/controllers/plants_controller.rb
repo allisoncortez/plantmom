@@ -9,15 +9,6 @@ class PlantsController < ApplicationController
     end
   end
   
-  #show route for plants
-  get '/plants/:id' do 
-    if logged_in?
-      @plant = Plant.find_by(id: params[:id])
-      erb :'/plants/show'
-    else 
-      redirect '/users/login'
-    end
-  end
   
   get '/plants/new' do 
     if logged_in?
@@ -25,6 +16,16 @@ class PlantsController < ApplicationController
   else
     redirect '/users/login'
   end
+  end
+  
+    #show route for plants
+  get '/plants/:id' do 
+    if logged_in?
+      @plant = Plant.find_by(id: params[:id])
+      erb :'/plants/show'
+    else 
+      redirect '/users/login'
+    end
   end
   
   #post route for new plant entries
@@ -51,7 +52,6 @@ class PlantsController < ApplicationController
     # else 
     #   redirect "/plants/new"
     # end
-  
   
 
   
