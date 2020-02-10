@@ -1,9 +1,13 @@
 <h1>INDEX PAGE FOR PLANTS.</h1>
 <br>
 <% @plant.each do |plant_entry| %>
-  <%= plant_entry.name %>
-  <br>
+
+  
+  <h2><%= plant_entry.name %></h2>
+  <p>
+    <h4>Description:</h4>
   <%= plant_entry.description %>
-  <br>
-  <%= plant_entry.care_level %>
+  <br><br>
+  <h4>Care Level:</h4>
+  <%= plant_entry.care_level %></p>
 <% end %>
