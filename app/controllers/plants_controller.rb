@@ -8,7 +8,7 @@ class PlantsController < ApplicationController
       redirect '/users/login'
     end
   end
-   
+  
   get '/plants/new' do 
     if logged_in?
     erb :"/plants/new"
@@ -23,9 +23,9 @@ class PlantsController < ApplicationController
       if params[:name] == "" || params[:description] == "" || params[:care_level] == ""
         erb :'/plants/new'
       else 
-        @plant = current_user.plants.build(name: params[:name], description: params[:description], care_level: params[:care_level])
-        if @plant.save 
-          redirect "/plants"
+        @plant = Plant.create(name: params[:name], description: params[:description], care_level: params[:care_level], user_id: current_user.id)
+        if @plant.save
+          redirect "/plants/#{@plant.id}"
         else 
           redirect "/plants/new"
         end 
@@ -54,7 +54,7 @@ class PlantsController < ApplicationController
   end
   
   #sends us to edit.erb which will render an edit form
-  get '/plants/:id/:slug/edit' do 
+  get '/plants/:id/edit' do 
     @plant = Plant.find_by(id: params[:id])
     if logged_in? && current_user == @plant.user
         erb :'/plants/edit'
