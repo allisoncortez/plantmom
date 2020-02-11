@@ -35,7 +35,7 @@ class PlantsController < ApplicationController
     if logged_in? && current_user == @plant.user
         erb :'/plants/edit'
       else
-        redirect '/users/login'
+        redirect '/plants'
     end
   end
   
@@ -85,18 +85,23 @@ class PlantsController < ApplicationController
         end 
       end 
     else 
-       redirect '/login'
+      redirect '/login'
     end
   end
+  
+  
+  # attempt at refactoring code.. need to nest hash in a :plant key
+  # patch '/plants/:id' do
+  #   @plant = Plant.find_by_id(params[:id])
+  #   if logged_in? && current_user == @plant.user
+  #     if valid_params? && @plant.update(name: params[:name], description: params[:description], care_level: params[:care_level])
+  #       redirect "/plants/#{params[:id]}"
+  #     else 
+  #       redirect "/plants/#{params[:id]}/edit"
+  #     end 
+  #   end
+  # end
       
-      
-      
-  #   @plant = Plant.find_by(id: params[:id])
-  #   if valid_params? && @plant.update(params[:plant]) 
-  #     redirect "/plants/#{@plant.id}/edit"
-  #   else
-  #       redirect "/plants/#{@plant.id}/edit"
-  #     end
   
   delete '/plants/:id/delete' do 
     @plant = Plant.find_by(id: params[:id])
@@ -104,14 +109,23 @@ class PlantsController < ApplicationController
     redirect "/plants"
   end
   
+  
   # helpers do
   #   def valid_params?
   #     params[:plant].none? do |k,v| 
   #       v == ""
   #     end
   #   end
+  # end
   
-    # def set_plant_entry 
-    #   @plant_entry = Plant.find(params[:id])
-    # end
+#my attempt below  
+  #   def valid_params?
+  #     if params[:name] != "" || params[:description] != "" || params[ :care_level] != ""
+  #     else
+  
+  #     end
+  #   end
+  # end
+    
+    
 end
