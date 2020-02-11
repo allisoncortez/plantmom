@@ -1,13 +1,10 @@
-<h1>INDEX PAGE FOR PLANTS.</h1>
+<h2>ALL PLANT BABIES</h2>
 <br>
 <% @plant.each do |plant_entry| %>
 
-  
-  <h2><%= plant_entry.name %></h2>
   <p>
-    <h4>Description:</h4>
-  <%= plant_entry.description %>
-  <br><br>
-  <h4>Care Level:</h4>
-  <%= plant_entry.care_level %></p>
+    <a href="/plants/show"><%= plant_entry.name %></a><br>
+    <%= plant_entry.care_level %> level<br>
+    Added by: <%= current_user.username %>
+  </p>
 <% end %>
