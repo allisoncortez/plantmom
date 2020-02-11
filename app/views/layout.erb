@@ -18,7 +18,7 @@
     <% if current_user %>
       <a href="/plants">All plants</a>
       <a href="/plants/new">Add a plant</a>
-      <a href="/users/<%=current_user.id%>">Homepage</a>
+      <a href="/users/show/<%=current_user.id%>">Homepage</a>
       <a href="/logout">Log Out</a>
     <% else %>
       <a href="/users/signup">Sign Up</a>
