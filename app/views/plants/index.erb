@@ -3,7 +3,7 @@
 <% @plant.each do |plant_entry| %>
 
   <p>
-    <a href="/plants/show"><%= plant_entry.name %></a><br>
+    <a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br>
     <%= plant_entry.care_level %> level<br>
     Added by: <%= current_user.username %>
   </p>
