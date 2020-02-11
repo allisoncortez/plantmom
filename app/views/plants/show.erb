@@ -1,6 +1,10 @@
 <h1><%=@plant.name%></h1>
-<p><%=@plant.description%></p>
-<p><%=@plant.care_level%></p>
+<%=@plant.care_level%> level<br>
+-----------------------------------------------------------------------
+<br><br>
+<p>
+<%=@plant.description%><br><br>
+ADDED BY: <%=current_user.username%></p>
 
 
 
