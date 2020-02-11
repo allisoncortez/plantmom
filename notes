@@ -1,7 +1,10 @@
 TO DO:
--add links to plants/index page (all plants)
--add "added by: current_user.id" to plants/index page
--fix plants show page... and all links connected to it.
+-fix homepage link in layout.erb
+-add free font(arcade game, pixely style) into stylesheet
+-pixelize plant images an insert... 
+-codepen for a loading snippet..?
+-maybe add gif?
+
 
 **ADD ERROR MESSAGING**
 
