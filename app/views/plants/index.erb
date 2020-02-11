@@ -5,6 +5,7 @@
   <p>
     <a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br>
     <%= plant_entry.care_level %> level<br>
-    Added by: <%= current_user.username %>
+    Added by: <%= plant_entry.user.username %>
+    
   </p>
 <% end %>
