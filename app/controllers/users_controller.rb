@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   #users show page
   get '/users/show/:id' do 
     @user = User.find_by_id(session[:user_id])
+    @plants = @user.plants
     erb :'/users/show'
   end
   
