@@ -1,14 +1,14 @@
-<h2>Edit your plant</h2>
+<h1>Edit your plant</h1><br>
 
 <form class="" action="/plants/<%= @plant.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   
-  <label for="name">Name</label>
-  <input type="text" name="name" value="<%=@plant.name%>">
-  <label for="description">Description</label>
-  <input type="text" name="description" value="<%=@plant.description%>">
-  <label for="care_level">Care Level</label>
-  <input type="text" name="care_level" value="<%=@plant.care_level%>">
+  <h3><label for="name">Name</label></h3>
+  <input type="text" name="name" value="<%=@plant.name%>"><br>
+  <h3><label for="description">Description</label></h3>
+  <input type="text" name="description" value="<%=@plant.description%>"><br>
+  <h3><label for="care_level">Care Level</label></h3>
+  <input type="text" name="care_level" value="<%=@plant.care_level%>"><br><br><br>
   <input type="submit" name="" value="Edit Entry">
   
 </form>
