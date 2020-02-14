@@ -1,11 +1,10 @@
-<h2>ALL PLANT BABIES</h2>
+<h1>All Plants</h1>
 <br>
 <% @plant.each do |plant_entry| %>
 
   <p>
     <a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br>
-    <%= plant_entry.care_level %> level<br>
-    Added by: <%= plant_entry.user.username %>
+    Added by <%= plant_entry.user.username %>
     
   </p>
 <% end %>

@@ -1,10 +1,9 @@
 
-<h2><%=current_user.username%>'s Show Page</h2>
+<h1>My Plants</h1>
 <br>
 <% @plants.each do |plant| %>
 
-    <a href="/plants/<%=plant.id%>"><%= plant.name %></a><br>
-    <%= plant.care_level %> level<br>
+    <h3><a href="/plants/<%=plant.id%>"><%= plant.name %></a></h3>
     
 <% end %>
 

@@ -14,8 +14,8 @@
   /* --- Welcome Page Styles --- */
   body {
     background-color: paleturquoise;
-    /*color: #333;*/
-    color: blue;
+    color: #333;
+    /*color: blue;*/
     font-family: Sans-Serif;
     line-height: 18px;
   }
@@ -112,7 +112,8 @@
 
   div {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
+    background-color: white;
     background-color: none;
     padding: 20px;
   }
