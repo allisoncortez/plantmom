@@ -104,7 +104,6 @@ class PlantsController < ApplicationController
       
   
   delete '/plants/:id/delete' do 
-    #plant user is current user:protection
      @plant = Plant.find_by(id: params[:id])
     if authorized_to_edit?(@plant)
     @plant.delete 

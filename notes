@@ -1,9 +1,23 @@
 TO DO:
--fix homepage link in layout.erb
+-refactor code to include authorized to edit method...
+-delete extra code that's commented out.. 
+-display basic errors
+-blog
+-5 minute video
+-look up plant people on IG 
+-submit BEFORE SUNDAY @2.
+
+DO STYLING FOR:
+-links
+-forms
+-nav bar.. ? to use bootstrap or not...
+-add pictures!
+-style home page, user show page, plant show page
+
+
 -add free font(arcade game, pixely style) into stylesheet
 -pixelize plant images an insert... 
--codepen for a loading snippet..?
--maybe add gif?
+
 
 fonts:
 https://www.1001fonts.com/retro+pixel-fonts.html
