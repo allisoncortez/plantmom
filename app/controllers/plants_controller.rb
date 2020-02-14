@@ -81,7 +81,7 @@ class PlantsController < ApplicationController
             redirect "/plants/#{params[:id]}/edit"
           end
         else
-          redirect 'tweets'
+          redirect '/plants'
         end 
       end 
     else 
@@ -104,9 +104,14 @@ class PlantsController < ApplicationController
       
   
   delete '/plants/:id/delete' do 
-    @plant = Plant.find_by(id: params[:id])
+    #plant user is current user:protection
+     @plant = Plant.find_by(id: params[:id])
+    if authorized_to_edit?(@plant)
     @plant.delete 
     redirect "/plants"
+    else 
+      redirect '/plants'
+    end
   end
   
   
