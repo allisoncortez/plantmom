@@ -40,7 +40,6 @@ https://allisoncortez.github.io/plantmom_app
 
 ## Built With 
 
- Markup : 
  * [Sinatra](http://sinatrarb.com/) - Web Framework
  
  * [Bundler](https://bundler.io/) - Dependency Management 
