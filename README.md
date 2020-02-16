@@ -39,9 +39,12 @@ If you want to know more about my process, check out my blog:
 https://allisoncortez.github.io/plantmom_app
 
 ## Built With 
- Markup : - [Sinatra](http://sinatrarb.com/) - Web Framework
-          - [Bundler](https://bundler.io/) - Dependency Management 
-          - [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html) - ORM (Object Relational Mapping) implementation
+
+ Markup : * [Sinatra](http://sinatrarb.com/) - Web Framework
+ 
+          * [Bundler](https://bundler.io/) - Dependency Management 
+          
+          * [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html) - ORM (Object Relational Mapping) implementation
 
 
 <!--[Sinatra](http://sinatrarb.com/) - Web Framework-->
