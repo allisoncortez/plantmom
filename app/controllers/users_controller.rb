@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
   
+  
+  
   get '/users/signup' do
     if !logged_in?
       erb :'users/signup'
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
       redirect "/users/show/#{current_user.id}"
     end
   end
+  
   
   
   post '/users/signup' do 
@@ -30,6 +33,8 @@ class UsersController < ApplicationController
     end
   end
   
+  
+  
   get '/users/login' do
     if !logged_in?
       erb :'/users/login'
@@ -43,6 +48,7 @@ class UsersController < ApplicationController
     login(params[:email], params[:password])
     redirect "/users/show/#{current_user.id}"
       
+      
     # else
     #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
     #   erb :'/users/signup'
@@ -54,7 +60,6 @@ class UsersController < ApplicationController
     session.clear 
     redirect '/'
   end
-  
   
 end
 
