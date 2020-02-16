@@ -2,9 +2,9 @@
 
 <% @plant.each do |plant_entry| %>
 
-  <p>
-    <h3><a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br></h3>
-    Added by <%= plant_entry.user.username %><br>
+  
+    <h3><a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a></h3>
+    <!--Added by <%= plant_entry.user.username %><br>-->
     
-  </p>
+  
 <% end %><br>
