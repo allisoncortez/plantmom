@@ -8,7 +8,7 @@ This App
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nyt'
+gem 'plantmom'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install nyt
+    $ gem install plantmom
 
 ## Usage
 
@@ -25,17 +25,19 @@ Type the following code below.
 
     ./bin/run
 
-You will be greeted and given a list of the Top 15 Nonfiction Best Sellers.
+You will be taken to a welcome page that Greets you!
+You will need to log in or sign up for an account. Once you are able to successfully create an account, it's time to navigate through the app.
 
-You are then prompted with a list of options to choose from:
-1. Pick a number from the list to find out more info on that specific book.
-2. See the full list of Best Sellers again.
-3. Exit the program.
+Add the top left, you'll see the main nav bar, giving you the following options:
+1. Add a Plant
+2. All Plants
+3. My Plants (this lets you view the plants you've logged)
+4. Logout
 
 If you want to know more about my process, check out my blog:
 https://allisoncortez.github.io/for_people_who_3_nonfiction_my_first_cli_project
 
-A video walkthrough of this API:
+A video walkthrough of Plantmom:
 https://youtu.be/adMIz0b2pgI
 
-I hope you find your next good book soon!
+I hope you enjoy!
