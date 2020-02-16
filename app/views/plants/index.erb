@@ -1,10 +1,10 @@
 <h1>All Plants</h1>
-<br>
+
 <% @plant.each do |plant_entry| %>
 
   <p>
-    <a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br>
-    Added by <%= plant_entry.user.username %>
+    <h3><a href="/plants/<%=plant_entry.id%>"><%= plant_entry.name %></a><br></h3>
+    Added by <%= plant_entry.user.username %><br>
     
   </p>
-<% end %>
+<% end %><br>

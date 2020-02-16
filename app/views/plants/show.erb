@@ -1,15 +1,16 @@
 <h1><%=@plant.name%></h1>
-care level: <%=@plant.care_level%><br>
------------------------------------------------------------------------
+
 <br><br>
 <p>
-<%=@plant.description%><br><br>
-Added by <%=@plant.user.username%></p>
+<strong>Level:</strong> <%=@plant.care_level%><br>
+<strong>Description:</strong> <%=@plant.description%><br><br>
+<em>added by <%=@plant.user.username%></em>
+</p>
 
 
 
 <% if @plant.user == current_user %>
-<a href="/plants/<%=@plant.id%>/edit">Edit Plant</a>
+<h3><a href="/plants/<%=@plant.id%>/edit">Edit Plant</a></h3><br>
 
 
 <form method="post" action="/plants/<%=@plant.id%>/delete">
