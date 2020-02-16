@@ -29,7 +29,6 @@ class UsersController < ApplicationController
       @user.save
       session[:user_id] = @user.id
     
-      #we're redirecting bc it's not our job to show this.. its /users/:id 
       redirect "/users/show/#{current_user.id}"
     end
   end
@@ -49,11 +48,6 @@ class UsersController < ApplicationController
     login(params[:email], params[:password])
     redirect "/users/show/#{current_user.id}"
       
-      
-    # else
-    #   #flash[:message] = "Oops! Looks like your login failed. Please try again."
-    #   erb :'/users/signup'
-    # end     
   end
   
   

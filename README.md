@@ -1,33 +1,33 @@
 
 # PlantMom App
 
-Plantmom allows users to track their plants and view other user's plants for ideas and inspiration, in the hopes of making plant logging an enjoyable experience for all plant moms.
+Plantmom allows users to track their plants and view other user's plants for ideas and inspiration, in the hopes of making plant logging an enjoyable experience. 
 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To get Plantmom up and running, fork and clone this repo:
 
 ```ruby
-gem 'plantmom'
+git@github.com:allisoncortez/plantmom.git
 ```
 
-And then execute:
+You'll need to cd into the project directory and run '''bundle install'''. Akk tge gem dependancies will then be installed.
 
-    $ bundle
+## Running Tests
 
-Or install it yourself as:
+In the terminal, please run "shotgun". It will open up a local server address where you can route to that address and look at the project. It will look something like this:
 
-    $ gem install plantmom
+```ruby
+http://127.0.0.1:9494/
+```
 
-## Usage
 
-Type the following code below.
+## App Navigation
 
-    ./bin/run
-
-You will be taken to a welcome page that Greets you!
-You will need to log in or sign up for an account. Once you are able to successfully create an account, it's time to navigate through the app.
+The first window users are greeted with is a welcome page!
+You will need to log in or sign up for an account.
+Once you are able to successfully create an account, it's time to navigate through the app.
 
 Add the top left, you'll see the main nav bar, giving you the following options:
 1. Add a Plant
@@ -38,7 +38,22 @@ Add the top left, you'll see the main nav bar, giving you the following options:
 If you want to know more about my process, check out my blog:
 https://allisoncortez.github.io/plantmom_app
 
-<!--A video walkthrough of Plantmom:-->
-<!--https://youtu.be/adMIz0b2pgI-->
+## Built With 
 
-I hope you enjoy!
+Sinatra - Web Framework
+Bundler - Dependency Management
+ActiveRecord - ORM (Object Relational Mapping) implementation
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/'beneficial-parser-0284'/nyt. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+
+##Authors
+[Allison Cortez](https://github.com/allisoncortez)
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+##Acknowledgements
