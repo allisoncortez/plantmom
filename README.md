@@ -1,7 +1,7 @@
 
 # PlantMom App
 
-This App 
+Plantmom allows users to track their plants and view other user's plants for ideas and inspiration. The objective of the app is to provide users with resources, community and encourage users to be better plant moms to their plants. 
 
 ## Installation
 
@@ -35,9 +35,9 @@ Add the top left, you'll see the main nav bar, giving you the following options:
 4. Logout
 
 If you want to know more about my process, check out my blog:
-https://allisoncortez.github.io/for_people_who_3_nonfiction_my_first_cli_project
+https://allisoncortez.github.io/plantmom_app
 
-A video walkthrough of Plantmom:
-https://youtu.be/adMIz0b2pgI
+<!--A video walkthrough of Plantmom:-->
+<!--https://youtu.be/adMIz0b2pgI-->
 
 I hope you enjoy!
