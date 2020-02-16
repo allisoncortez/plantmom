@@ -58,5 +58,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 * [Madeline Stark](https://github.com/Madeline-Stark), for being amazing
 * My team of cohorts who have been so supportive throghout all this, specifically including: [Alice](https://github.com/thealice), [Ray](https://github.com/rgonzalez12), [Jarbi](https://github.com/JarbiBonilla) and [Pouya](https://github.com/pjavadi84). Ya'll rock!
-* All the dead plants that have lost their lives to me.. R.I.P. plant babies.
+* All the dead plants that have lost their lives to me...  **R.I.P. plant babies**.
 
