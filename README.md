@@ -12,7 +12,7 @@ To get Plantmom up and running, fork and clone this repo:
 git@github.com:allisoncortez/plantmom.git
 ```
 
-You'll need to cd into the project directory and run '''bundle install'''. Akk tge gem dependancies will then be installed.
+You'll need to cd into the project directory and run 'bundle install'. All the gem dependancies will then be installed.
 
 ## Running Tests
 
@@ -50,6 +50,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'benef
 
 
 ##Authors
+
 [Allison Cortez](https://github.com/allisoncortez)
 
 ## License
@@ -57,3 +58,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'benef
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ##Acknowledgements
+
