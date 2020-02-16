@@ -36,7 +36,7 @@ class PlantsController < ApplicationController
   #sends us to edit.erb which will render an edit form
   get '/plants/:id/edit' do 
     @plant = Plant.find_by(id: params[:id])
-    if logged_in? && current_user == @plant.user
+    if authorized_to_edit?(@plant)
         erb :'/plants/edit'
       else
         redirect '/plants'
@@ -70,8 +70,8 @@ class PlantsController < ApplicationController
       if params[:name] == "" || params[:description] == "" || params[:care_level] == ""
         redirect "/plants/#{params[:id]}/edit"
       else
-        @plant = Plant.find_by_id(params[:id])
-        if @plant && @plant.user == current_user 
+        @plant = Plant.find_by(id: params[:id])
+        if authorized_to_edit?(@plant) 
           if @plant.update(name: params[:name], description: params[:description], care_level: params[:care_level])
             redirect "/plants/#{params[:id]}"
           else
@@ -89,10 +89,10 @@ class PlantsController < ApplicationController
       
   
   delete '/plants/:id/delete' do 
-     @plant = Plant.find_by(id: params[:id])
+    @plant = Plant.find_by(id: params[:id])
     if authorized_to_edit?(@plant)
-    @plant.delete 
-    redirect "/plants"
+      @plant.delete 
+      redirect "/plants"
     else 
       redirect '/plants'
     end

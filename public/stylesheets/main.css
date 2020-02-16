@@ -58,6 +58,19 @@
   p {
     margin-bottom: 18px;
   }
+  
+  a:link, a:visited {
+    color: #8FBC8F;
+    /*padding: 14px 25px;*/
+    /*text-align: left;*/
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  a:hover, a:active {
+    /*background-color: #8FBC8F;*/
+    color: #66CDAA;
+  }
 
   .main {
     overflow: hidden;

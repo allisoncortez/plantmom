@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   post '/users/signup' do 
     #create new user and persist to database
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      
       redirect '/users/signup'
     else 
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])

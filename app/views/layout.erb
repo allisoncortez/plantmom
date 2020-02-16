@@ -16,13 +16,13 @@
   <body>
     <div class="nav">
     <% if current_user %>
-      <a href="/plants">All plants</a>
-      <a href="/plants/new">Add a plant</a>
-      <a href="/users/show/<%=current_user.id%>">Homepage</a>
-      <a href="/logout">Log Out</a>
+      <strong><a href="/logout">Log Out</a></strong>
+      <strong><a href="/plants/new">Add a plant</a></strong>
+      <strong><a href="/plants">All plants</a></strong>
+      <strong><a href="/users/show/<%=current_user.id%>">My Plants</a></strong>
     <% else %>
-      <a href="/users/signup">Sign Up</a>
-      <a href="/users/login">Log In</a>
+      <strong><a href="/users/signup">Sign Up</a></strong>
+      <strong><a href="/users/login">Log In</a></strong>
     <% end %>
     </div>
     
