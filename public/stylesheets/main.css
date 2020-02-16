@@ -13,7 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
+    background-image: url("https://images.pexels.com/photos/1600130/pexels-photo-1600130.jpeg?cs=srgb&dl=photo-of-green-leafed-plant-beside-wall-1600130.jpg&fm=jpg");
+    /*background-color: #cccccc;*/
     background-color: paleturquoise;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     color: #333;
     /*color: blue;*/
     font-family: Sans-Serif;
@@ -123,8 +130,8 @@
   div {
     border-radius: 5px;
     /*background-color: #f2f2f2;*/
-    background-color: white;
-    background-color: none;
+    /*background-color: rgba(255,255,255,0.8);*/
+    background-color: transparent;
     padding: 20px;
   }
   
