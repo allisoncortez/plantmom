@@ -8,19 +8,15 @@ Plantmom allows users to track their plants and view other user's plants for ide
 
 To get Plantmom up and running, fork and clone this repo:
 
-```ruby
-git@github.com:allisoncortez/plantmom.git
-```
+``git@github.com:allisoncortez/plantmom.git``
 
 You'll need to cd into the project directory and run 'bundle install'. All the gem dependancies will then be installed.
 
 ## Running Tests
 
-In the terminal, please run "shotgun". It will open up a local server address where you can route to that address and look at the project. It will look something like this:
+In the terminal, please run ``shotgun``. It will open up a local server address where you can route to that address and look at the project. It will look something like this:
 
-```ruby
-http://127.0.0.1:9494/
-```
+``http://127.0.0.1:9494/``
 
 
 ## App Navigation
@@ -41,15 +37,8 @@ https://allisoncortez.github.io/plantmom_app
 ## Built With 
 
  * [Sinatra](http://sinatrarb.com/) - Web Framework
- 
  * [Bundler](https://bundler.io/) - Dependency Management 
-          
  * [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html) - ORM (Object Relational Mapping) implementation
-
-
-<!--[Sinatra](http://sinatrarb.com/) - Web Framework-->
-<!--[Bundler](https://bundler.io/) - Dependency Management-->
-<!--[ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html) - ORM (Object Relational Mapping) implementation-->
 
 ## Contributing
 
