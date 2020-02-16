@@ -10,13 +10,13 @@ To get Plantmom up and running, fork and clone this repo:
 
 ``git@github.com:allisoncortez/plantmom.git``
 
-You'll need to cd into the project directory and run 'bundle install'. All the gem dependancies will then be installed.
+You'll need to cd into the project directory and run ``bundle install``. All the gem dependancies will then be installed.
 
 ## Running Tests
 
 In the terminal, please run ``shotgun``. It will open up a local server address where you can route to that address and look at the project. It will look something like this:
 
-``http://127.0.0.1:9494/``
+> http://127.0.0.1:9494/
 
 
 ## App Navigation
