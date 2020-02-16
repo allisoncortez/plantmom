@@ -1,7 +1,8 @@
 
 # PlantMom App
 
-Plantmom allows users to track their plants and view other user's plants for ideas and inspiration. The objective of the app is to provide users with resources, community and encourage users to be better plant moms to their plants. 
+Plantmom allows users to track their plants and view other user's plants for ideas and inspiration, in the hopes of making plant logging an enjoyable experience for all plant moms.
+
 
 ## Installation
 
