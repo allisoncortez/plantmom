@@ -1,5 +1,5 @@
-<!--<span class="error"><%= "Username and password are required fields" if @user && @user.errors.any? %></span>-->
-<!--<span class="error"><%= "The username '#{@username_exists}' is already taken: <a href='/login'>Login</a>" if @username_exists %></span>-->
+
+<%= "Must include email and password" if @user && @user.errors.any? %>
 
 <h1>Sign Up</h1><br>
 <form class="" action="/users/signup" method="POST">

@@ -30,7 +30,8 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/users/show/#{current_user.id}"
       else
-        redirect '/users/signup'
+        # redirect '/users/signup'
+        erb :'users/signup'
       end
     end
   end
