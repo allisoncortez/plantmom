@@ -21,15 +21,30 @@ class PlantsController < ApplicationController
   
   
   
-  #show route for plants
+  # #show route for plants
+  # get '/plants/:id' do 
+  #   if logged_in?
+  #     @plant = Plant.find_by(id: params[:id])
+  #     erb :'/plants/show'
+  #   else 
+  #     redirect '/users/login'
+  #   end
+  # end
+  
+    #show route for plants
   get '/plants/:id' do 
-    if logged_in?
+    redirect_if_not_logged_in
       @plant = Plant.find_by(id: params[:id])
       erb :'/plants/show'
-    else 
-      redirect '/users/login'
-    end
+
   end
+  
+  
+  # def redirect_if_not_logged_in
+  #     if !logged_in?
+  #       redirect '/users/login' 
+  #     end
+  #   end 
   
   
   
